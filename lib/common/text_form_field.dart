@@ -46,6 +46,7 @@ class CustomTextFormField extends StatelessWidget {
         decoration: InputDecoration(
             hintText: hintText,
             label: label != null ? Text(label!) : null,
+            labelStyle: TextStyle(color: Colors.black),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(borderRadius ?? 0),
                 borderSide: BorderSide(

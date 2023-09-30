@@ -32,7 +32,7 @@ class CustomButton extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: color ?? Colors.blue,
+          color: color ?? Colors.black,
           borderRadius: BorderRadius.circular(5),
         ),
         child: loading
@@ -40,7 +40,7 @@ class CustomButton extends StatelessWidget {
             : Text(
                 text,
                 style:
-                    TextStyle(fontSize: 18, color: textColor ?? Colors.black),
+                    TextStyle(fontSize: 18, color: textColor ?? Colors.white),
               ),
       ),
     );
