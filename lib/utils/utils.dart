@@ -13,3 +13,7 @@ navigateToWithReplacement(BuildContext context, Widget page) {
   Navigator.of(context)
       .pushReplacement(MaterialPageRoute(builder: (context) => page));
 }
+
+navigateBack(BuildContext context) {
+  Navigator.of(context).pop();
+}

@@ -6,6 +6,7 @@ class CustomText extends StatelessWidget {
   final double? fontSize;
   final FontWeight? fontWeight;
   final Color? color;
+  final int? maxLine;
 
   const CustomText({
     required this.text,
@@ -13,6 +14,7 @@ class CustomText extends StatelessWidget {
     this.fontSize,
     this.fontWeight,
     this.color,
+    this.maxLine,
     super.key,
   });
 
@@ -22,6 +24,9 @@ class CustomText extends StatelessWidget {
       onTap: onPressed,
       child: Text(
         text,
+        maxLines: maxLine ?? 1,
+        overflow: TextOverflow.clip,
+        textAlign: TextAlign.justify,
         style: TextStyle(
           fontSize: fontSize ?? 18,
           fontWeight: fontWeight ?? FontWeight.normal,
