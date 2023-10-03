@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_track/pages/category_page.dart';
 
 import '../../constant/category.dart';
 import 'category_card.dart';
@@ -14,10 +15,17 @@ class CategoryListWidget extends StatelessWidget {
         child: ListView.builder(
             itemCount: categoryList.length,
             itemBuilder: (context, index) {
-              return CategoryCard(
-                  title: categoryList[index]['title'],
-                  amount: amountList[index],
-                  index: index);
+              return InkWell(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => CategoryPage(
+                          categoryTitle: categoryList[index]['title'])));
+                },
+                child: CategoryCard(
+                    title: categoryList[index]['title'],
+                    amount: amountList[index],
+                    index: index),
+              );
             }),
       ),
     );

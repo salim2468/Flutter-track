@@ -9,8 +9,8 @@ import '../constant/category.dart';
 
 class AddPage extends StatelessWidget {
   AddPage({super.key});
-  final TextEditingController _emailController = new TextEditingController();
-  final TextEditingController _passwordController = new TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +23,11 @@ class AddPage extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
         centerTitle: false,
-        leading: InkWell(
-            onTap: () {
-              Navigator.of(context).pop();
-            },
-            child: const Icon(Icons.arrow_back)),
+        // leading: InkWell(
+        //     onTap: () {
+        //       Navigator.of(context).pop();
+        //     },
+        //     child: const Icon(Icons.arrow_back)),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -65,6 +65,9 @@ class AddPage extends StatelessWidget {
                 onPressed: (value) {
                   print(value);
                 },
+              ),
+              const SizedBox(
+                height: 8,
               ),
               const CustomText(
                 text: 'Date',
