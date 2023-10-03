@@ -20,4 +20,14 @@ class Validator {
     }
     return null;
   }
+
+  static String? nameValidator(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter name';
+    }
+    if (value.length < 3) {
+      return 'Password should be atleast 3 character';
+    }
+    return null;
+  }
 }
