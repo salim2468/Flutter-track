@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_track/pages/bottom_navigation.dart/bottom_nav.dart';
-import 'package:flutter_track/pages/dashboard_page.dart';
-import 'package:flutter_track/utils/validators/validator.dart';
+import 'package:flutter_track/pages/auth/login_page.dart';
+import 'package:flutter_track/utils/utils.dart';
 
 import '../../common/button.dart';
 import '../../common/text.dart';
 import '../../common/text_form_field.dart';
-import '../../utils/utils.dart';
-import 'register_page.dart';
+import '../../utils/validators/validator.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+class RegisterPage extends StatelessWidget {
+  RegisterPage({super.key});
+  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final _loginFormKey = GlobalKey<FormState>();
+  final _registerFormKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
-    login() {
-      if (_loginFormKey.currentState!.validate()) {
-        navigateToWithReplacement(context, const BottomNav());
+    register() {
+      if (_registerFormKey.currentState!.validate()) {
+        navigateToWithReplacement(context, LoginPage());
       }
     }
 
@@ -28,9 +28,17 @@ class LoginPage extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
             child: Form(
-              key: _loginFormKey,
+              key: _registerFormKey,
               child: Column(
                 children: [
+                  CustomTextFormField(
+                    label: 'Name',
+                    bottomMargin: 8,
+                    topMargin: 8,
+                    hintText: 'Name',
+                    controller: _nameController,
+                    validator: Validator.nameValidator,
+                  ),
                   CustomTextFormField(
                     label: 'Email',
                     bottomMargin: 8,
@@ -48,23 +56,16 @@ class LoginPage extends StatelessWidget {
                     validator: Validator.passwordValidator,
                   ),
                   CustomButton(
-                    marginVertical: 8,
-                    text: 'Login',
-                    onPressed: login,
-                    loading: true,
+                    text: 'Register',
+                    onPressed: register,
                   ),
                   Row(
                     children: [
+                      const CustomText(text: 'Already have Account,'),
                       CustomText(
-                        text: 'No Account Yet, ',
-                        color: Colors.grey.shade700,
-                        fontSize: 14,
-                      ),
-                      CustomText(
-                        fontSize: 16,
-                        text: 'Create One',
+                        text: 'Sign in',
                         onPressed: () {
-                          navigateToWithReplacement(context, RegisterPage());
+                          navigateToWithReplacement(context, LoginPage());
                         },
                       ),
                     ],
